@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steam OpenId Test</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <a href="{% url "auth:logout" %}">Logout</a>
+    <br>
+    Hello, {{ user.personaname }}
+{% else %}
+    <a href="{% url "social:begin" "steam" %}">Sign in with Steam</a>
+{% endif %}
+</body>
+</html>
