@@ -3,6 +3,9 @@
 This application shows how to create a django app with steam openid
 authentication using the steam backend in the package python-social-auth.
 
+The project requires [this](https://github.com/python-social-auth/social-core/pull/63)
+pull request of python-social-auth in order to work.
+
 **The purpose of this example is to show Steam authentication ONLY and
 not the association of django user model instances with the OpenId provider**
 
