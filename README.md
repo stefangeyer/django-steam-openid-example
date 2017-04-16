@@ -3,8 +3,8 @@
 This application shows how to create a django app with steam openid
 authentication using the steam backend in the package python-social-auth.
 
-**This example uses Steam authentication ONLY and does not rely
-on the django model auth backend**
+**The purpose of this example is to show Steam authentication ONLY and
+not the association of django user model instances with the OpenId provider**
 
 The contains the necessary configuration for the backend and uses a
 custom user model in order to process all the
@@ -15,7 +15,7 @@ retrieved from the Web-API.
 
 This application extends the social auth pipeline to make sure the steam
 backend works best. All changes to the pipeline can be viewed in the
-file `social_auth/pipeline.py`
+file `social_auth/pipeline.py`.
 
 - **user_exists**
   Checks if a user with the retrieved uid already exists
@@ -23,7 +23,7 @@ file `social_auth/pipeline.py`
 - **user_details**
   Replaces the corresponding function provided by the library
   and updates the user with the user data retrieved from the steam
-  Web-API
+  Web-API.
 
 ## Models
 
