@@ -13,21 +13,26 @@ retrieved from the Web-API.
 
 ## Pipeline
 
-The pipeline was updated to make sure the steam backend works best.
-All changes to the pipeline can be viewed in the file `social_auth/pipeline.py`
+This application extends the social auth pipeline to make sure the steam
+backend works best. All changes to the pipeline can be viewed in the
+file `social_auth/pipeline.py`
 
 - **user_exists**
-  This function checks if a user with the retrieved uid already exists
+  Checks if a user with the retrieved uid already exists
   and passes the user object down the pipeline if true.
 - **user_details**
-  This function replaces the related function provided by the library
+  Replaces the corresponding function provided by the library
   and updates the user with the user data retrieved from the steam
   Web-API
 
 ## Models
 
-WIP
+In order to properly store the received information, a custom
+auth user model was created which identifies users by their Steam id
+and also stores additional information like the display name on the
+player's profile and the links referring to the player's profile picture.
 
 ## Settings
 
-WIP
+The settings for python-social-auth are collected at the bottom of
+`steam_openid/settings.py`.
