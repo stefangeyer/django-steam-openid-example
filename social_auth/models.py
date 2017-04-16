@@ -6,7 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class SteamUserManager(BaseUserManager):
-
     def _create_user(self, steamid, password, **extra_fields):
         """
         Creates and saves a User with the given steamid and password.
@@ -50,9 +49,10 @@ class SteamUser(AbstractBaseUser, PermissionsMixin):
     avatarmedium = models.CharField(max_length=255)
     avatarfull = models.CharField(max_length=255)
 
+    # Add the other fields that can be retrieved from the Web-API if required
+
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
     objects = SteamUserManager()

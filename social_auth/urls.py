@@ -5,5 +5,5 @@ from social_auth.views import IndexView, LogoutView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^logout', login_required(LogoutView.as_view(), login_url='/login/steam/'), name='logout')
+    url(r'^logout', login_required(LogoutView.as_view(), login_url='/'), name='logout')
 ]
