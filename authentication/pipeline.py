@@ -1,4 +1,13 @@
-from social_auth.models import SteamUser
+from authentication.models import SteamUser
+
+
+def get_username(strategy, uid, user=None, *args, **kwargs):
+    """Removes unnecessary slugification and cleaning of the username since the uid is unique and well formed"""
+    if not user:
+        username = uid
+    else:
+        username = strategy.storage.user.get_username(user)
+    return {'username': username}
 
 
 def user_details(user, details, strategy, *args, **kwargs):
@@ -23,7 +32,7 @@ def user_details(user, details, strategy, *args, **kwargs):
             strategy.storage.user.changed(user)
 
 
-def user_exists(uid, *args, **kwargs):
+def associate_existing_user(uid, *args, **kwargs):
     """If there already is an user with the given steamid, hand it over to the pipeline"""
     if SteamUser.objects.filter(steamid=uid).exists():
         return {
