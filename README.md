@@ -19,7 +19,7 @@ file `authentication/pipeline.py`.
 
 - **associate_existing_user**
   Checks if a user with the retrieved uid already exists
-  and passes the user object down the pipeline if true.4
+  and passes the user object down the pipeline if true.
 - **get_username**
   Since we also associate existing accounts, slugification of the
   retrieved steamid is not necessary. Username is always the steamid
